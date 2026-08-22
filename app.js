@@ -33,6 +33,8 @@
   };
   phoneInput.addEventListener('input', keepPhonePrefix);
   phoneInput.addEventListener('focus', keepPhonePrefix);
+  window.addEventListener('pageshow', keepPhonePrefix);
+  window.setTimeout(keepPhonePrefix, 0);
   keepPhonePrefix();
 
   const validate = (values) => ({
