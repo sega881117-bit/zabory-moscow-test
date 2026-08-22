@@ -65,3 +65,10 @@
     }
   });
 })();
+
+// The cinematic hero is CSS-driven; pause its compositor work when the tab is hidden.
+if (document.querySelector('.triptych')) {
+  const syncTriptychMotion = () => document.body.classList.toggle('is-hidden', document.hidden);
+  document.addEventListener('visibilitychange', syncTriptychMotion, { passive: true });
+  syncTriptychMotion();
+}
