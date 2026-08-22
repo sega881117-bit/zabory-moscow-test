@@ -1,0 +1,21 @@
+.directions-note {
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr;
+  border-bottom: 2px solid var(--black);
+  background: var(--black);
+  color: var(--paper);
+}
+.directions-note p {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 20px;
+  border-right: 1px solid rgba(243, 239, 229, .32);
+  font: 500 12px/1.5 var(--mono);
+}
+.directions-note b { color: var(--orange); font-size: 10px; letter-spacing: .08em; }
+.directions-note span { max-width: 370px; }
+@media (max-width: 800px) {
+  .directions-note { grid-template-columns: 1fr; }
+  .directions-note p { padding: 17px; border-right: 0; border-bottom: 1px solid rgba(243, 239, 229, .32); }
+}
