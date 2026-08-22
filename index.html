@@ -9,8 +9,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="poster-additions.css?v=spec-2" />
-    <link rel="stylesheet" href="fidelity-hero.css?v=collage-4" />
+    <link rel="stylesheet" href="poster-additions.css?v=layout-3" />
+    <link rel="stylesheet" href="fidelity-hero.css?v=static-5" />
   </head>
   <body>
     <!-- THESIS: construction, stated clearly. OWN-WORLD: an industrial street-poster built from black ink, off-white stock, safety orange and magenta. STORY: choose a structure, see starting prices, leave one request. FIRST VIEWPORT: a huge installed gate proves the subject before any sales copy. FORM: a disciplined specification slip that only collects a request. FINISH: form status is candid about delivery. seed: 58762ba6 -->
@@ -51,20 +51,37 @@
         <div class="process-copy"><h2 id="process-title">ОТ ЗАЯВКИ<br>ДО ПРИЁМКИ.</h2><p class="process-intro">Пять понятных этапов без предварительной оплаты.</p><ol><li><b>01</b><span>ЗАЯВКА</span><small>Дистанционный расчёт по вашим данным.</small></li><li><b>02</b><span>ЗАМЕР</span><small>Бесплатный выезд и финальная смета.</small></li><li><b>03</b><span>ДОГОВОР</span><small>Фиксируем условия без предоплаты.</small></li><li><b>04</b><span>МОНТАЖ</span><small>Устанавливаем в согласованный срок.</small></li><li><b>05</b><span>ПРИЁМКА</span><small>Проверяете работу и оплачиваете остаток.</small></li></ol></div>
       </section>
       <section class="lead-section" id="lead-form" aria-labelledby="form-title">
-        <div class="form-title"><p class="display-kicker">04 / ЗАЯВКА</p><h2 id="form-title">НАЧНЁМ<br>С УЧАСТКА.</h2><p>Укажите материал, высоту (стандарт 2 м), длину, ворота или калитку (стандарт ворот 4 м) и адрес участка. Каналы связи подключим позднее. Сейчас принимаем только заявки из этой формы.</p></div>
+        <div class="form-title"><p class="display-kicker">04 / ЗАЯВКА</p><h2 id="form-title">НАЧНЁМ<br>С УЧАСТКА.</h2><p>Выберите материал, укажите длину, высоту, ворота или калитку и район. Этого достаточно, чтобы подготовить предварительный расчёт.</p></div>
         <form class="lead-form specification-form" novalidate>
           <p class="form-heading">ЛИСТ ПРЕДВАРИТЕЛЬНОГО РАСЧЁТА <span>№ 001</span></p>
           <div class="form-field"><label for="name">ВАШЕ ИМЯ</label><input id="name" name="name" autocomplete="name" required minlength="2" /><p class="field-error" id="name-error"></p></div>
           <div class="form-field"><label for="phone">ТЕЛЕФОН</label><input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" value="+7 9" maxlength="18" aria-describedby="phone-error" required /><p class="field-error" id="phone-error"></p></div>
-          <fieldset class="choice-group form-field"><legend>МАТЕРИАЛ ЗАБОРА</legend><div class="choice-grid material-grid"><label class="choice"><input type="radio" name="material" value="Профлист" /><span>ПРОФЛИСТ</span></label><label class="choice"><input type="radio" name="material" value="Евроштакетник — один ряд" /><span>ЕВРОШТАКЕТНИК<br>ОДИН РЯД</span></label><label class="choice"><input type="radio" name="material" value="Евроштакетник — шахматка" /><span>ЕВРОШТАКЕТНИК<br>ШАХМАТКА</span></label><label class="choice"><input type="radio" name="material" value="Забор 3D" /><span>3D-СЕТКА</span></label><label class="choice"><input type="radio" name="material" value="Рабица" /><span>РАБИЦА</span></label></div><p class="field-error" id="material-error"></p></fieldset>
-          <div class="form-pair"><div class="form-field"><label for="length">ДЛИНА, М.П.</label><input id="length" name="length" inputmode="decimal" placeholder="Например, 40" /><p class="field-hint">Если знаете — укажите примерно.</p></div><fieldset class="choice-group height-group form-field"><legend>ВЫСОТА</legend><div class="choice-grid height-grid"><label class="choice"><input type="radio" name="height" value="1.5 м" /><span>1,5</span></label><label class="choice"><input type="radio" name="height" value="1.8 м" /><span>1,8</span></label><label class="choice"><input type="radio" name="height" value="2 м" checked /><span>2,0</span></label><label class="choice"><input type="radio" name="height" value="2.5 м" /><span>2,5</span></label><label class="choice"><input type="radio" name="height" value="3 м" /><span>3,0</span></label></div><p class="field-hint">м — стандарт 2 м</p></fieldset></div>
-          <fieldset class="choice-group form-field"><legend>ВОРОТА И КАЛИТКА <span>/ МОЖНО НЕСКОЛЬКО</span></legend><div class="choice-grid gates-grid"><label class="choice"><input type="checkbox" name="gates" value="Откатные ворота" /><span>ОТКАТНЫЕ<br>ВОРОТА</span></label><label class="choice"><input type="checkbox" name="gates" value="Распашные ворота" /><span>РАСПАШНЫЕ<br>ВОРОТА</span></label><label class="choice"><input type="checkbox" name="gates" value="Калитка" /><span>КАЛИТКА</span></label></div></fieldset>
-          <div class="form-field"><label for="address">АДРЕС УЧАСТКА</label><input id="address" name="address" autocomplete="street-address" required placeholder="Город, посёлок или район" /><p class="field-error" id="address-error"></p></div>
+          <fieldset class="choice-group form-field material-field"><legend>МАТЕРИАЛ ЗАБОРА</legend><div class="choice-grid material-grid"><label class="choice"><input type="radio" name="material" value="Профлист" /><span>ПРОФЛИСТ</span></label><label class="choice"><input type="radio" name="material" value="Евроштакетник — один ряд" /><span>ЕВРОШТАКЕТНИК<br>ОДИН РЯД</span></label><label class="choice"><input type="radio" name="material" value="Евроштакетник — шахматка" /><span>ЕВРОШТАКЕТНИК<br>ШАХМАТКА</span></label><label class="choice"><input type="radio" name="material" value="Забор 3D" /><span>3D-СЕТКА</span></label><label class="choice"><input type="radio" name="material" value="Рабица" /><span>РАБИЦА</span></label></div><p class="field-error" id="material-error"></p></fieldset>
+          <div class="form-pair measurements-field"><div class="form-field"><label for="length">ДЛИНА, М.П.</label><input id="length" name="length" inputmode="decimal" placeholder="Например, 40" /><p class="field-hint">Если знаете — укажите примерно.</p></div><fieldset class="choice-group height-group form-field"><legend>ВЫСОТА</legend><div class="choice-grid height-grid"><label class="choice"><input type="radio" name="height" value="1.5 м" /><span>1,5</span></label><label class="choice"><input type="radio" name="height" value="1.8 м" /><span>1,8</span></label><label class="choice"><input type="radio" name="height" value="2 м" checked /><span>2,0</span></label><label class="choice"><input type="radio" name="height" value="2.5 м" /><span>2,5</span></label><label class="choice"><input type="radio" name="height" value="3 м" /><span>3,0</span></label></div><p class="field-hint">м — стандарт 2 м</p></fieldset></div>
+          <fieldset class="choice-group form-field gates-field"><legend>ВОРОТА И КАЛИТКА <span>/ МОЖНО НЕСКОЛЬКО</span></legend><div class="choice-grid gates-grid"><label class="choice"><input type="checkbox" name="gates" value="Откатные ворота" /><span>ОТКАТНЫЕ<br>ВОРОТА</span></label><label class="choice"><input type="checkbox" name="gates" value="Распашные ворота" /><span>РАСПАШНЫЕ<br>ВОРОТА</span></label><label class="choice"><input type="checkbox" name="gates" value="Калитка" /><span>КАЛИТКА</span></label></div></fieldset>
+          <div class="form-field address-field"><label for="address">АДРЕС УЧАСТКА</label><input id="address" name="address" autocomplete="street-address" required placeholder="Город, посёлок или район" /><p class="field-error" id="address-error"></p></div>
           <button class="submit-button" type="submit"><span>ОТПРАВИТЬ ЗАЯВКУ</span><b aria-hidden="true">↗</b></button><p class="form-status" role="status" aria-live="polite"></p>
         </form>
       </section>
+      <section class="material-studies" aria-labelledby="material-studies-title">
+        <div class="material-studies-head"><h2 id="material-studies-title">ВЫБЕРИТЕ<br>СВОЙ РИТМ.</h2><p>Три базовых материала — с разной степенью приватности, прозрачности и графики на участке.</p></div>
+        <div class="material-studies-grid">
+          <article class="material-study"><img src="assets/hero-proflist-v3.png" alt="Графитовый забор из профнастила" /><div><b>ПРОФЛИСТ</b><h3>ЗАКРЫТАЯ ЛИНИЯ.</h3><p>Для участка, где важна приватность.</p></div></article>
+          <article class="material-study"><img src="assets/hero-euro-v1.png" alt="Графитовый забор из евроштакетника" /><div><b>ЕВРОШТАКЕТНИК</b><h3>ВОЗДУШНЫЙ РИТМ.</h3><p>Вертикали, свет и аккуратная геометрия.</p></div></article>
+          <article class="material-study"><img src="assets/hero-3d-v3.png" alt="Графитовый забор из 3D-сетки" /><div><b>3D-СЕТКА</b><h3>ТОЧНАЯ ГЕОМЕТРИЯ.</h3><p>Лёгкое надёжное ограждение открытых границ.</p></div></article>
+        </div>
+      </section>
+      <section class="work-terms" aria-labelledby="work-terms-title">
+        <div class="work-terms-title"><h2 id="work-terms-title">УСЛОВИЯ<br>БЕЗ СЮРПРИЗОВ.</h2><p>Сначала уточняем задачу, затем фиксируем понятный порядок работ.</p></div>
+        <div class="work-terms-list">
+          <article><b>01</b><h3>БЕСПЛАТНЫЙ ЗАМЕР</h3><p>Выезжаем на участок и уточняем финальную смету.</p></article>
+          <article><b>02</b><h3>ДОГОВОР</h3><p>Закрепляем условия и гарантию 2 года.</p></article>
+          <article><b>03</b><h3>МОНТАЖ ОТ 1 ДНЯ</h3><p>Согласовываем срок до начала работ.</p></article>
+          <article><b>04</b><h3>ПРИЁМКА РАБОТ</h3><p>Проверяете результат и оплачиваете остаток.</p></article>
+        </div>
+      </section>
     </main>
-    <footer><span>ЗАБОРЫ / МОСКВА И МО</span><span>ПРЕДВАРИТЕЛЬНЫЙ РАСЧЁТ ПО ЗАЯВКЕ</span><a href="#top">НАВЕРХ ↑</a></footer>
-    <script src="app.js?v=phone-2"></script>
+    <footer class="site-footer"><div class="footer-brand"><strong>ЗАБОРЫ</strong><span>МОСКВА / МОСКОВСКАЯ ОБЛАСТЬ</span></div><nav aria-label="Нижняя навигация"><a href="#directions">Конструкции</a><a href="#process">Как работаем</a><a href="#lead-form">Заявка</a></nav><a class="footer-action" href="#lead-form">ОСТАВИТЬ ЗАЯВКУ <span aria-hidden="true">↗</span></a><p>Предварительный расчёт по заявке. Финальная стоимость — после замера.</p><a class="footer-top" href="#top">НАВЕРХ ↑</a></footer>
+    <script src="app.js?v=static-3"></script>
   </body>
 </html>

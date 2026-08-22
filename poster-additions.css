@@ -24,3 +24,63 @@
 .specification-form{display:grid;gap:18px}.specification-form .form-heading,.specification-form .form-field{margin:0}.choice-group{min-width:0;margin:0;padding:0;border:0}.choice-group legend{width:100%;margin:0 0 9px;padding:0;font:600 10px var(--mono);letter-spacing:.1em}.choice-group legend span{opacity:.62}.choice-grid{display:grid;gap:7px}.material-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.height-grid{grid-template-columns:repeat(5,minmax(0,1fr));gap:4px}.gates-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.choice{position:relative;display:block;min-width:0;cursor:pointer}.choice input{position:absolute;inline-size:1px;block-size:1px;opacity:0}.choice span{display:block;min-height:48px;padding:10px 9px 9px 29px;border:1px solid var(--line);font:600 10px/1.25 var(--mono);letter-spacing:.04em;transition:background-color .2s ease,color .2s ease,border-color .2s ease}.choice span::before{position:absolute;top:12px;left:10px;width:10px;height:10px;border:1px solid var(--black);border-radius:50%;content:"";transition:background-color .2s ease,box-shadow .2s ease}.choice input:checked+span{border-color:var(--black);background:var(--black);color:var(--paper)}.choice input:checked+span::before{background:var(--orange);box-shadow:inset 0 0 0 2px var(--black)}.choice input:focus-visible+span{outline:3px solid var(--magenta);outline-offset:3px}.height-grid .choice span{min-height:42px;padding:12px 3px 8px;text-align:center;font-size:10px}.height-grid .choice span::before{top:5px;left:50%;width:7px;height:7px;transform:translateX(-50%)}.form-pair{display:grid;grid-template-columns:1fr 1.18fr;gap:16px}.field-hint{min-height:14px;margin:5px 0 0;color:rgba(17,17,15,.7);font:500 9px/1.3 var(--mono)}.specification-form .has-error .choice-grid{outline:2px solid #a60042;outline-offset:3px}.specification-form .has-error .choice span{border-color:#a60042}.specification-form .submit-button{margin-top:1px}
 .specification-form input:focus-visible{outline:0;outline-offset:0;border-bottom:2px solid var(--black);box-shadow:0 3px 0 var(--orange)}
 @media(max-width:520px){.material-grid{grid-template-columns:1fr}.gates-grid{grid-template-columns:1fr}.form-pair{grid-template-columns:1fr;gap:18px}.height-grid{gap:3px}.choice span{min-height:46px}.height-grid .choice span{min-height:39px}.specification-form{gap:16px}}
+
+@media(hover:hover){.choice:hover span{border-color:var(--black);background:var(--orange);transform:translateY(-2px)}.choice:hover span::before{background:var(--paper);box-shadow:inset 0 0 0 2px var(--orange)}.choice:has(input:checked):hover span{background:var(--black);color:var(--paper);transform:none}.choice:has(input:checked):hover span::before{background:var(--orange);box-shadow:inset 0 0 0 2px var(--black)}}
+
+/* Conditions are a separate proof block, not a continuation of the black product grid. */
+.directions-note{position:relative;grid-template-columns:1fr 1fr 2fr;margin-top:24px;border:2px solid var(--black);background:var(--paper);color:var(--black)}.directions-note p{position:relative;gap:12px;padding:28px 20px 20px;border-right:1px solid var(--black);font:500 12px/1.5 var(--mono)}.directions-note p::before{position:absolute;top:0;right:0;left:0;height:5px;background:var(--orange);content:""}.directions-note p:last-child{border-right:0}.directions-note b{color:var(--black);font-size:10px;letter-spacing:.08em}.directions-note span{max-width:370px}
+@media(max-width:800px){.directions-note{grid-template-columns:1fr;margin-top:16px}.directions-note p{padding:23px 17px 17px;border-right:0;border-bottom:1px solid var(--black)}.directions-note p:last-child{border-bottom:0}}
+
+/* The specification is one task: on wide screens its fields read as one compact sheet. */
+@media (min-width:801px){
+  .lead-section{display:block;padding:78px max(24px,calc((100vw - 1340px)/2)) 86px}
+  .form-title{display:grid;grid-template-columns:minmax(0,1fr) minmax(270px,360px);column-gap:72px;align-items:end}
+  .form-title .display-kicker,.form-title h2{grid-column:1}
+  .form-title>p:last-child{grid-column:2;grid-row:1 / span 2;align-self:end;max-width:360px;margin:0}
+  .lead-form{max-width:1340px;margin:42px auto 0;padding:30px 32px 34px}
+  .specification-form{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:30px;row-gap:18px}
+  .specification-form>.form-heading,.material-field,.measurements-field,.submit-button,.form-status{grid-column:1/-1}
+  .material-grid{grid-template-columns:repeat(5,minmax(0,1fr))}
+  .gates-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .measurements-field{max-width:680px}
+  .address-field{grid-column:1}
+  .gates-field{grid-column:2}
+}
+
+.material-studies{padding:0 max(24px,calc((100vw - 1340px)/2)) 104px;background:var(--paper)}
+.material-studies-head{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(230px,.55fr);gap:42px;align-items:end;padding:76px 0 39px;border-bottom:2px solid var(--black)}
+.material-studies-head h2,.work-terms-title h2{margin:0;font:400 clamp(62px,7.5vw,118px)/.8 var(--display);letter-spacing:.01em}
+.material-studies-head p{max-width:330px;margin:0;font-size:14px;font-weight:600}
+.material-studies-grid{display:grid;grid-template-columns:repeat(3,1fr);border-left:1px solid var(--line)}
+.material-study{position:relative;min-width:0;min-height:425px;overflow:hidden;border-right:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--black);color:var(--paper)}
+.material-study img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.8) contrast(1.06);transition:transform .55s cubic-bezier(.16,1,.3,1),filter .55s ease}
+.material-study::after{position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.88),rgba(0,0,0,.08) 67%);content:""}
+.material-study div{position:absolute;z-index:1;right:18px;bottom:19px;left:18px}
+.material-study b{display:block;margin-bottom:13px;color:var(--orange);font:600 10px var(--mono);letter-spacing:.11em}
+.material-study h3{margin:0;font:400 clamp(34px,3.3vw,49px)/.84 var(--display);letter-spacing:.015em}
+.material-study p{max-width:245px;margin:10px 0 0;font-size:12px;font-weight:600}
+@media(hover:hover){.material-study:hover img{filter:saturate(1) contrast(1.08);transform:scale(1.045)}}
+
+.work-terms{display:grid;grid-template-columns:minmax(290px,.9fr) minmax(0,1.5fr);background:var(--black);color:var(--paper)}
+.work-terms-title{display:flex;flex-direction:column;justify-content:space-between;min-height:490px;padding:72px max(24px,calc((100vw - 1340px)/2)) 62px}
+.work-terms-title p{max-width:285px;margin:30px 0 0;color:var(--paper);font-size:14px;font-weight:600}
+.work-terms-list{display:grid;grid-template-columns:1fr 1fr;border-left:1px solid rgba(243,239,229,.45)}
+.work-terms-list article{position:relative;display:grid;align-content:space-between;min-height:245px;padding:23px 22px;border-right:1px solid rgba(243,239,229,.45);border-bottom:1px solid rgba(243,239,229,.45)}
+.work-terms-list b{color:var(--orange);font:600 10px var(--mono);letter-spacing:.1em}
+.work-terms-list h3{max-width:260px;margin:52px 0 9px;font:400 clamp(33px,3vw,46px)/.87 var(--display);letter-spacing:.015em}
+.work-terms-list p{max-width:250px;margin:0;color:rgba(243,239,229,.78);font-size:12px;font-weight:600}
+.work-terms-list article::after{position:absolute;right:0;bottom:0;left:0;height:4px;background:var(--magenta);content:"";transform:scaleX(0);transform-origin:left;transition:transform .35s cubic-bezier(.16,1,.3,1)}
+@media(hover:hover){.work-terms-list article:hover::after{transform:scaleX(1)}}
+
+.site-footer{display:grid;grid-template-columns:1.3fr 1fr auto;gap:28px;padding:37px max(24px,calc((100vw - 1340px)/2)) 23px;background:var(--orange);color:var(--black)}
+.footer-brand{display:grid;align-content:start;gap:7px}.footer-brand strong{font:400 54px/.8 var(--display);letter-spacing:.02em}.footer-brand span,.site-footer nav a,.footer-action,.site-footer p,.footer-top{font:600 10px/1.45 var(--mono);letter-spacing:.08em}
+.site-footer nav{display:grid;align-content:start;gap:8px}.site-footer nav a,.footer-top{width:max-content;color:var(--black);text-decoration:none}.site-footer nav a:hover,.footer-top:hover{text-decoration:underline;text-underline-offset:4px}
+.footer-action{display:flex;align-items:center;justify-content:space-between;gap:22px;align-self:start;min-width:218px;padding:13px 14px;background:var(--black);color:var(--paper);text-decoration:none}.footer-action span{color:var(--orange);font-size:20px;line-height:.7}.footer-action:hover{background:var(--magenta)}
+.site-footer p{grid-column:1/3;max-width:540px;margin:12px 0 0}.footer-top{align-self:end;justify-self:end}
+@media(max-width:800px){
+  .material-studies{padding:0 16px 66px}.material-studies-head{grid-template-columns:1fr;gap:22px;padding:54px 0 30px}.material-studies-head h2,.work-terms-title h2{font-size:clamp(65px,19vw,102px)}
+  .material-studies-grid{grid-template-columns:1fr}.material-study{min-height:315px}.material-study div{right:15px;bottom:16px;left:15px}
+  .work-terms{grid-template-columns:1fr}.work-terms-title{min-height:0;padding:55px 16px 45px}.work-terms-list{grid-template-columns:1fr 1fr;border-top:1px solid rgba(243,239,229,.45);border-left:0}.work-terms-list article{min-height:205px;padding:18px 16px}.work-terms-list h3{margin-top:38px;font-size:34px}
+  .site-footer{grid-template-columns:1fr;gap:24px;padding:29px 16px 20px}.site-footer p{grid-column:auto;margin:0}.footer-top{align-self:auto;justify-self:start}
+}
+@media(max-width:480px){.work-terms-list{grid-template-columns:1fr}.work-terms-list article{min-height:170px;border-right:0}.work-terms-list h3{margin-top:28px}.footer-action{width:100%}}
