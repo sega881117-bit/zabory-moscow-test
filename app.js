@@ -33,6 +33,7 @@
   };
   phoneInput.addEventListener('input', keepPhonePrefix);
   phoneInput.addEventListener('focus', keepPhonePrefix);
+  keepPhonePrefix();
 
   const validate = (values) => ({
     name: values.name.trim().length >= 2 ? '' : 'Укажите имя — не менее двух символов.',
