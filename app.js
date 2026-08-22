@@ -21,22 +21,26 @@
   const validate = (values) => ({
     name: values.name.trim().length >= 2 ? '' : 'Укажите имя — не менее двух символов.',
     phone: values.phone.replace(/\D/g, '').length >= 10 ? '' : 'Укажите телефон в удобном формате.',
-    service: values.service ? '' : 'Выберите интересующее направление.'
+    material: values.material ? '' : 'Выберите материал забора.',
+    address: values.address.trim().length >= 3 ? '' : 'Укажите город, посёлок или район участка.'
   });
 
   const showErrors = (errors) => {
     Object.entries(errors).forEach(([field, message]) => {
-      const input = form.elements[field];
+      const formControl = form.elements[field];
+      const inputs = formControl?.length && !formControl.closest ? [...formControl] : [formControl];
+      const input = inputs[0];
       const error = document.getElementById(`${field}-error`);
       input.closest('.form-field').classList.toggle('has-error', Boolean(message));
-      input.setAttribute('aria-invalid', Boolean(message));
+      inputs.forEach((control) => control.setAttribute('aria-invalid', Boolean(message)));
       error.textContent = message;
     });
   };
 
   form.addEventListener('submit', async (event) => {
     event.preventDefault();
-    const values = Object.fromEntries(new FormData(form).entries());
+    const formData = new FormData(form);
+    const values = Object.fromEntries(formData.entries());
     const errors = validate(values);
     showErrors(errors);
     status.textContent = '';
@@ -49,8 +53,17 @@
     button.disabled = true;
     button.textContent = 'Отправляем…';
     try {
+      const gates = formData.getAll('gates');
       const result = await window.submitLead({
-        name: values.name.trim(), phone: values.phone.trim(), service: values.service, comment: values.comment.trim()
+        name: values.name.trim(),
+        phone: values.phone.trim(),
+        service: values.material,
+        comment: [
+          `Длина: ${values.length?.trim() || 'не указана'} м.п.`,
+          `Высота: ${values.height || '2 м'}`,
+          `Ворота/калитка: ${gates.length ? gates.join(', ') : 'не нужны'}`,
+          `Адрес участка: ${values.address.trim()}`
+        ].join('\n')
       });
       if (!result || !result.ok) throw new Error(result?.message || 'Не удалось передать заявку.');
       status.textContent = result.message || 'Заявка принята. Скоро подготовим предварительный расчёт.';
