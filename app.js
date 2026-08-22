@@ -18,9 +18,25 @@
     return { ok: response.ok && result.ok === true, message: result.message || 'Не удалось передать заявку. Проверьте связь и повторите попытку.' };
   });
 
+  const formatRussianMobile = (rawValue) => {
+    let digits = rawValue.replace(/\D/g, '');
+    if (digits.startsWith('7') || digits.startsWith('8')) digits = digits.slice(1);
+    digits = digits.replace(/^9?/, '').slice(0, 9);
+    const mobile = `9${digits}`;
+    const groups = [mobile.slice(0, 3), mobile.slice(3, 6), mobile.slice(6, 8), mobile.slice(8, 10)].filter(Boolean);
+    return `+7 ${groups.join(groups.length > 1 ? ' ' : '')}`.replace(/(\d{3}) (\d{3}) (\d{2}) (\d{2})$/, '$1 $2-$3-$4');
+  };
+
+  const phoneInput = form.elements.phone;
+  const keepPhonePrefix = () => {
+    phoneInput.value = formatRussianMobile(phoneInput.value);
+  };
+  phoneInput.addEventListener('input', keepPhonePrefix);
+  phoneInput.addEventListener('focus', keepPhonePrefix);
+
   const validate = (values) => ({
     name: values.name.trim().length >= 2 ? '' : 'Укажите имя — не менее двух символов.',
-    phone: values.phone.replace(/\D/g, '').length >= 10 ? '' : 'Укажите телефон в удобном формате.',
+    phone: /^79\d{9}$/.test(values.phone.replace(/\D/g, '')) ? '' : 'Некорректно введён телефон. Проверьте набор.',
     material: values.material ? '' : 'Выберите материал забора.',
     address: values.address.trim().length >= 3 ? '' : 'Укажите город, посёлок или район участка.'
   });
