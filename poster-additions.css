@@ -28,7 +28,7 @@
 @media(hover:hover){.choice:hover span{border-color:var(--black);background:var(--orange);transform:translateY(-2px)}.choice:hover span::before{background:var(--paper);box-shadow:inset 0 0 0 2px var(--orange)}.choice:has(input:checked):hover span{background:var(--black);color:var(--paper);transform:none}.choice:has(input:checked):hover span::before{background:var(--orange);box-shadow:inset 0 0 0 2px var(--black)}}
 
 /* Conditions are a separate proof block, not a continuation of the black product grid. */
-.directions-note{position:relative;grid-template-columns:1fr 1fr 2fr;margin-top:24px;border:2px solid var(--black);background:var(--paper);color:var(--black)}.directions-note p{position:relative;gap:12px;padding:28px 20px 20px;border-right:1px solid var(--black);font:500 12px/1.5 var(--mono)}.directions-note p::before{position:absolute;top:0;right:0;left:0;height:5px;background:var(--orange);content:""}.directions-note p:last-child{border-right:0}.directions-note b{color:var(--black);font-size:10px;letter-spacing:.08em}.directions-note span{max-width:370px}
+.directions-note{position:relative;grid-template-columns:1fr 1fr 2fr;margin-top:24px;border:2px solid var(--black);background:var(--paper);color:var(--black)}.directions-note p{position:relative;gap:12px;padding:28px 20px 20px;border-right:1px solid var(--black);font:500 12px/1.5 var(--mono)}.directions-note p::before{position:absolute;top:0;right:0;left:0;height:1px;background:var(--orange);content:""}.directions-note p:last-child{border-right:0}.directions-note b{color:var(--black);font-size:10px;letter-spacing:.08em}.directions-note span{max-width:370px}
 @media(max-width:800px){.directions-note{grid-template-columns:1fr;margin-top:16px}.directions-note p{padding:23px 17px 17px;border-right:0;border-bottom:1px solid var(--black)}.directions-note p:last-child{border-bottom:0}}
 
 /* The specification is one task: on wide screens its fields read as one compact sheet. */
@@ -58,7 +58,7 @@
 .work-terms-list b{color:var(--orange);font:600 10px var(--mono);letter-spacing:.1em}
 .work-terms-list h3{max-width:260px;margin:52px 0 9px;font:400 clamp(33px,3vw,46px)/.87 var(--display);letter-spacing:.015em}
 .work-terms-list p{max-width:250px;margin:0;color:rgba(243,239,229,.78);font-size:12px;font-weight:600}
-.work-terms-list article::after{position:absolute;right:0;bottom:0;left:0;height:4px;background:var(--magenta);content:"";transform:scaleX(0);transform-origin:left;transition:transform .35s cubic-bezier(.16,1,.3,1)}
+.work-terms-list article::after{position:absolute;right:0;bottom:0;left:0;height:1px;background:var(--magenta);content:"";transform:scaleX(0);transform-origin:left;transition:transform .35s cubic-bezier(.16,1,.3,1)}
 @media(hover:hover){.work-terms-list article:hover::after{transform:scaleX(1)}}
 @media(min-width:801px) and (max-width:1020px){
   .work-terms{grid-template-columns:1fr}
@@ -79,3 +79,16 @@
   .site-footer{grid-template-columns:1fr;gap:24px;padding:29px 16px 20px}.site-footer p{grid-column:auto;margin:0}.footer-top{align-self:auto;justify-self:start}
 }
 @media(max-width:480px){.work-terms-list{grid-template-columns:1fr}.work-terms-list article{min-height:170px;border-right:0}.work-terms-list h3{margin-top:28px}.footer-action{width:100%}}
+
+/* A hovered construction is brought to the foreground like a selected sheet in a materials board. */
+@media (hover:hover) and (pointer:fine){
+  .direction{isolation:isolate;transition:transform .28s cubic-bezier(.16,1,.3,1),box-shadow .28s cubic-bezier(.16,1,.3,1)}
+  .direction>div,.direction-number,.direction strong,.direction>a{transition:transform .28s cubic-bezier(.16,1,.3,1),background-color .22s ease,color .22s ease,border-color .22s ease}
+  .direction:hover{z-index:3;box-shadow:0 14px 26px rgba(17,17,15,.19);transform:translateY(-4px)}
+  .direction:hover>div{transform:translateX(9px)}
+  .direction:hover .direction-number{transform:translateY(3px)}
+  .direction:hover strong{transform:translateX(-7px)}
+  .direction:hover>a{background:var(--black);border-color:var(--black);color:var(--paper);transform:translateX(-5px) scale(1.08)}
+  .direction-dark:hover>a,.direction-magenta:hover>a{background:var(--paper);border-color:var(--paper);color:var(--black)}
+}
+@media (prefers-reduced-motion:reduce){.direction,.direction>div,.direction-number,.direction strong,.direction>a{transition:none!important}}
